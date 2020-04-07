@@ -99,17 +99,13 @@
     <string name="no">No</string>
     <string name="run_the_tutorial_and_download_data">Run the tutorial and download data</string>
     <string name="introone"><![CDATA[ <h1> <b>Hello !</b> </h1>
-<p>You are about to use a short(1mmin), safe and anonymous health checkup. Your answers will be carefully analyzed and you will learn about possible causes of your symptoms. </p>
+<p>You are about to use a short(1min), safe and anonymous health checkup. Your answers will be carefully analyzed and you will learn about possible causes of your symptoms. </p>
 
 <p>You are adviced not to rush to hospital if u have mild symptoms. This is only to help you self-quarantine/isolate yourself from others based on how long you have had these symptoms for. </p>]]> </string>
-    <string name="introtwo"><![CDATA[
-<h1>Terms of Service</h1>
-
+    <string name="introtwo"><![CDATA[<h1>Terms of Service</h1>
 <p>Before using the checkup, please read the Terms of Service. Remember that:</p>
-
 <p><b>-Checkup is not a diagnosis.</b> Checkup is for nformational purposes and is not a qualified medical opinion.</p>
-
 <p><b>-Do not use in emergencies.</b>In case of health emergency, call your local emergency number immediately.</p>
-<p><b>-Your data is safe.</b>Information that you provide is anonymous and not shared with anyone.</p>
-]]></string>
+<p><b>-Your data is safe.</b>Information that you provide is anonymous and not shared with anyone.</p>]]></string>
+    <string name="checkboxquestionaire">I read and agree to <b>Terms of Service</b> and <b>privacy policy</b></string>
 </resources>

@@ -32,6 +32,12 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/txt_14"/>
 
+            <CheckBox
+                android:id="@+id/checkBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/checkboxquestionaire" />
+
         </LinearLayout>
 
     </ScrollView>

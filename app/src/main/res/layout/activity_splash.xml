@@ -22,20 +22,20 @@
             android:layout_width="@dimen/width_200dp"
             android:layout_height="@dimen/height_200dp"
             android:layout_centerInParent="true"
-            android:src="@mipmap/heatmap"/>
+            android:src="@mipmap/logosplash"/>
 
         <simplifii.framework.widgets.CustomFontTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/app_name"
-            android:textSize="22dp"
             android:gravity="center"
-            android:textColor="@color/colorPrimary"
-            android:paddingTop="@dimen/padding_12dp"
-            android:paddingBottom="@dimen/padding_12dp"
             android:paddingLeft="@dimen/padding_32dp"
+            android:paddingTop="@dimen/padding_12dp"
             android:paddingRight="@dimen/padding_32dp"
-            />
+            android:paddingBottom="@dimen/padding_12dp"
+            android:text="@string/app_name"
+            android:textColor="@color/colorPrimary"
+            android:textSize="22dp"
+            android:visibility="invisible" />
 
     </LinearLayout>
 
@@ -43,13 +43,13 @@
         android:id="@+id/ll_btns"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_alignParentBottom="true"
-        android:gravity="center"
-        android:padding="@dimen/padding_12dp"
         android:layout_marginLeft="@dimen/margin_32dp"
         android:layout_marginRight="@dimen/margin_32dp"
-        android:layout_marginBottom="@dimen/margin_64dp">
+        android:layout_marginBottom="78dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="@dimen/padding_12dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -61,59 +61,68 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/shape_btn_signup"
-                android:text="SIGN UP"
-                android:textSize="16dp"
-                android:textColor="@color/white"
-                android:paddingTop="@dimen/padding_12dp"
-                android:paddingBottom="@dimen/padding_12dp"
                 android:paddingLeft="@dimen/padding_46dp"
-                android:paddingRight="@dimen/padding_46dp"/>
+                android:paddingTop="@dimen/padding_12dp"
+                android:paddingRight="@dimen/padding_46dp"
+                android:paddingBottom="@dimen/padding_12dp"
+                android:text="SIGN UP"
+                android:textColor="@color/white"
+                android:textSize="16dp" />
 
-<!--            <simplifii.framework.widgets.CustomFontTextView-->
-<!--                android:id="@+id/tv_btn_slogin"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:background="@drawable/shape_btn_signup"-->
-<!--                android:text="LOGIN"-->
-<!--                android:textSize="16dp"-->
-<!--                android:textColor="@color/white"-->
-<!--                android:paddingTop="@dimen/padding_12dp"-->
-<!--                android:paddingBottom="@dimen/padding_12dp"-->
-<!--                android:paddingLeft="@dimen/padding_32dp"-->
-<!--                android:paddingRight="@dimen/padding_32dp"-->
-<!--                android:layout_weight="1"-->
-<!--                android:gravity="center"-->
-<!--                android:layout_marginLeft="2dp"/>-->
+            <!--            <simplifii.framework.widgets.CustomFontTextView-->
+            <!--                android:id="@+id/tv_btn_slogin"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:background="@drawable/shape_btn_signup"-->
+            <!--                android:text="LOGIN"-->
+            <!--                android:textSize="16dp"-->
+            <!--                android:textColor="@color/white"-->
+            <!--                android:paddingTop="@dimen/padding_12dp"-->
+            <!--                android:paddingBottom="@dimen/padding_12dp"-->
+            <!--                android:paddingLeft="@dimen/padding_32dp"-->
+            <!--                android:paddingRight="@dimen/padding_32dp"-->
+            <!--                android:layout_weight="1"-->
+            <!--                android:gravity="center"-->
+            <!--                android:layout_marginLeft="2dp"/>-->
         </LinearLayout>
 
 
-
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="123dp"
             android:layout_height="wrap_content"
-            android:weightSum="2"
+            android:layout_marginTop="@dimen/margin_16dp"
             android:orientation="horizontal"
-            android:layout_marginTop="@dimen/margin_16dp">
+            android:weightSum="15">
+
             <ImageView
                 android:id="@+id/ic_fb"
                 android:layout_width="@dimen/width_32dp"
                 android:layout_height="@dimen/height_32dp"
-                android:src="@mipmap/facebook"
+                android:layout_marginRight="16dp"
                 android:layout_weight="1"
-                android:layout_marginRight="16dp"/>
+                android:src="@mipmap/facebook" />
+
             <ImageView
                 android:id="@+id/ic_google"
                 android:layout_width="@dimen/width_32dp"
                 android:layout_height="@dimen/height_32dp"
-                android:src="@mipmap/google"
+                android:layout_marginRight="16dp"
                 android:layout_weight="1"
-                android:layout_marginRight="16dp"/>
-<!--            <ImageView-->
-<!--                android:layout_width="@dimen/width_32dp"-->
-<!--                android:layout_height="@dimen/height_32dp"-->
-<!--                android:src="@drawable/ic_arrow_back"-->
-<!--                android:tint="@color/black"-->
-<!--                android:layout_weight="1"/>-->
+                android:src="@mipmap/google" />
+
+            <ImageView
+                android:id="@+id/ic_linkedin"
+                android:layout_width="29dp"
+                android:layout_height="@dimen/height_32dp"
+                android:layout_marginRight="16dp"
+                android:layout_weight="1"
+                android:src="@mipmap/linkedin" />
+            <!--            <ImageView-->
+            <!--                android:layout_width="@dimen/width_32dp"-->
+            <!--                android:layout_height="@dimen/height_32dp"-->
+            <!--                android:src="@drawable/ic_arrow_back"-->
+            <!--                android:tint="@color/black"-->
+            <!--                android:layout_weight="1"/>-->
 
         </LinearLayout>
 
