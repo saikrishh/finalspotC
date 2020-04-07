@@ -22,14 +22,14 @@
                 android:layout_width="@dimen/width_200dp"
                 android:layout_height="@dimen/height_200dp"
                 android:layout_centerInParent="true"
-                android:src="@mipmap/heatmap"/>
+                android:src="@mipmap/introone"/>
 
             <simplifii.framework.widgets.CustomFontTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="LAYOUT_INTRO_ONE    TEXT AREA ONE"
-                android:textColor="@color/clr_blue_accent"
-                android:textSize="@dimen/txt_m"/>
+                android:text="@string/introone"
+                android:textColor="@color/black"
+                android:textSize="@dimen/txt_16_5"/>
 
         </LinearLayout>
 
