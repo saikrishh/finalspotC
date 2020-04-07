@@ -51,16 +51,18 @@ android:background="@color/app_background">
             android:layout_marginRight="4dp"
             android:orientation="vertical"
             android:gravity="center">
+
             <ImageView
                 android:layout_width="@dimen/width_24dp"
                 android:layout_height="@dimen/height_24dp"
-                android:src="@mipmap/facebook"/>
+                android:src="@mipmap/quarantineicon" />
+
             <simplifii.framework.widgets.CustomFontTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Quartine"
-                android:textSize="@dimen/txt_s"
-                android:textColor="@color/grey_1"/>
+                android:text="Quarantine"
+                android:textColor="@color/grey_1"
+                android:textSize="@dimen/txt_s" />
         </LinearLayout>
         <LinearLayout
             android:id="@+id/ll_checkup"
@@ -73,13 +75,14 @@ android:background="@color/app_background">
             <ImageView
                 android:layout_width="@dimen/width_24dp"
                 android:layout_height="@dimen/height_24dp"
-                android:src="@mipmap/facebook"/>
+                android:src="@mipmap/checkup"/>
+
             <simplifii.framework.widgets.CustomFontTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Quarantine"
-                android:textSize="@dimen/txt_s"
-                android:textColor="@color/grey_1"/>
+                android:text="Checkup"
+                android:textColor="@color/grey_1"
+                android:textSize="@dimen/txt_s" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
@@ -91,13 +94,14 @@ android:background="@color/app_background">
             <ImageView
                 android:layout_width="@dimen/width_24dp"
                 android:layout_height="@dimen/height_24dp"
-                android:src="@mipmap/facebook"/>
+                android:src="@mipmap/infoicon"/>
+
             <simplifii.framework.widgets.CustomFontTextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Quartine"
-                android:textSize="@dimen/txt_s"
-                android:textColor="@color/grey_1"/>
+                android:text="Cases/info"
+                android:textColor="@color/grey_1"
+                android:textSize="@dimen/txt_s" />
         </LinearLayout>
 
     </LinearLayout>
