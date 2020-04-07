@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr"
+    android:background="@color/app_background"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_progressbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/padding_12dp">
+    <simplifii.framework.widgets.CustomFontTextView
+        android:id="@+id/tv_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/txt_l"
+        android:text="Introduction"
+        android:layout_toLeftOf="@+id/mf_progress_bar"/>
+        <ProgressBar
+            android:progressDrawable="@drawable/green_progress_drawable"
+            style="?android:attr/progressBarStyleHorizontal"
+            android:id="@+id/mf_progress_bar"
+            app:layout_widthPercent="40%"
+            app:layout_heightPercent="4%"
+            app:layout_marginTopPercent="2%"
+            android:layout_width="@dimen/dp200"
+            android:layout_height="12dp"
+            android:layout_alignParentRight="true"
+            android:layout_gravity="center_horizontal"
+            />
+    </RelativeLayout>
+
+    <com.gocorona.customViews.NonSwipeableViewPager
+        android:id="@+id/vp_questionsFragContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/rl_progressbar"
+        android:layout_above="@+id/lyt_footer"/>
+
+    <RelativeLayout
+        android:id="@+id/lyt_footer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:elevation="2dp">
+
+
+        <simplifii.framework.widgets.CustomFontTextView
+            tools:drawableStart="@drawable/ic_backward_arrow"
+            android:id="@+id/vw_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@string/back"
+            android:textColor="@color/grey_light_1"
+            android:includeFontPadding="false"
+            android:textSize="13sp"
+            app:customFont="@string/guesssans_black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_alignParentLeft="true"/>
+
+        <simplifii.framework.widgets.CustomFontTextView
+            tools:drawableStart="@drawable/ic_forward_arrow"
+            android:id="@+id/vw_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:text="@string/next"
+            android:textColor="@color/grey_light_1"
+            android:includeFontPadding="false"
+            android:textSize="13sp"
+            app:customFont="@string/guesssans_black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+</RelativeLayout>
