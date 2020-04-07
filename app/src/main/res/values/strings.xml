@@ -95,4 +95,5 @@
     <string name="what_is_your_height">What is your height ?</string>
     <string name="tell_symptoms">Please tell us about your symtoms</string>
     <string name="fever">Do you have fever?</string>
+    <string name="eg_157_in_cm">eg-157 (in cm.)</string>
 </resources>

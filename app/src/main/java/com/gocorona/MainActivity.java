@@ -3,6 +3,7 @@ package com.gocorona;
 import android.app.Activity;
 import android.content.ContextWrapper;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.Build;
 import android.os.Bundle;
@@ -49,6 +50,11 @@ import simplifii.framework.utility.AppConstants;
 import simplifii.framework.utility.LocalHelperUtility;
 import simplifii.framework.utility.Preferences;
 
+
+
+
+
+
 public class MainActivity extends AppBaseActivity implements DrawerLayout.DrawerListener, ChangeFragmentListner {
     private DrawerLayout drawerLayout;
     private FragmentManager fragmentManager;
@@ -60,6 +66,7 @@ public class MainActivity extends AppBaseActivity implements DrawerLayout.Drawer
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setOnClickListener(R.id.rl_drawer, R.id.ll_checkup);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
         initViews();
         initToolBar("");
 //        if (!Preferences.isUserDeviceInfoSaveed()){
@@ -77,6 +84,7 @@ public class MainActivity extends AppBaseActivity implements DrawerLayout.Drawer
                 break;
             case R.id.ll_checkup:
                 addFragment(new QuestionsMainFargment(), true);
+
 //                showCheckupDialog();
                 break;
         }

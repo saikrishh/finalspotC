@@ -28,7 +28,7 @@
                 android:gravity="center"
                 android:textColor="@color/black"
                 android:lineSpacingExtra="10dp"
-                android:text="Are you currently suffering from any kind of Illness?"
+                android:text="QUESTION TO BE LOADED FROM JSON ... ABC?"
                 android:layout_gravity="center"
                 android:layout_marginBottom="@dimen/margin_32dp"/>
 

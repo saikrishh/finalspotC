@@ -24,8 +24,8 @@
             <ImageView
                 android:layout_gravity="center_horizontal"
                 android:src="@mipmap/aisymp"
-                android:layout_width="340px"
-                android:layout_height="340px"/>
+                android:layout_width="340dp"
+                android:layout_height="340dp"/>
 
             <LinearLayout
                 android:layout_marginTop="@dimen/height_24dp"

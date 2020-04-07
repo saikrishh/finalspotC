@@ -21,7 +21,7 @@
             android:textStyle="bold" />
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:hint="eg-157 (in cm.)"
+            android:hint="@string/eg_157_in_cm"
             android:textSize="16sp"
             android:layout_width="match_parent"
             android:maxLength="3"
