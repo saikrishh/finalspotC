@@ -1,34 +1,214 @@
 {
   "data":{
-    "qstionList":[
+    "qstionList": [
       {
         "qstion":"Tell us who this checkup is for?",
         "type":1,
-        "options": [{"option": "self", "isSelected": 0},{"option": "Someone else and you are assisting them", "isSelected": 0}],
+        "options": [{"option": "Self", "isSelected": 0},{"option": "Someone else and you are assisting them", "isSelected": 0},{"option": "Explore", "isSelected": 0}],
         "answer":"",
         "isQuestion":true
       },
       {
-        "qstion":"Tell us who this checkup is for?",
+        "qstion":"Please select your gender",
         "type":1,
-        "options": [{"option": "self", "isSelected": 0},{"option": "Someone else and you are assisting them", "isSelected": 0}],
+        "options": [{"option": "Female", "isSelected": 0},{"option": "Male", "isSelected": 0},{"option": "Transgender", "isSelected": 0}],
         "answer":"",
         "isQuestion":true
       },
       {
-        "qstion":"Tell us who this checkup is for?",
+        "qstion":"How old are you?",
         "type":1,
-        "options": [{"option": "self", "isSelected": 0},{"option": "Someone else and you are assisting them", "isSelected": 0}],
+        "options": [{"option": "self", "isSelected": 0}],
         "answer":"",
         "isQuestion":true
       },
       {
-        "qstion":"Tell us who this checkup is for?",
+        "qstion":"What is your weight?",
         "type":1,
-        "options": [{"option": "self", "isSelected": 0},{"option": "Someone else and you are assisting them", "isSelected": 0}],
+        "options": [{"option": "self", "isSelected": 0}],
+        "answer":"",
+        "isQuestion":true
+      },
+      {
+        "qstion":"I have or had a health history",
+        "type":1,
+        "options": [{"option" :"Asthma", "isSelected": 0},
+          {"option" :"High BP", "isSelected": 0},
+          {"option" :"Kidney disease", "isSelected": 0},
+          {"option" :"Heart disease", "isSelected": 0},
+          {"option" :"lung disease", "isSelected": 0},
+          {"option" :"Stroke", "isSelected": 0},
+          {"option" :"Diabeties", "isSelected": 0},
+          {"option" :"No, I do not have a health history", "isSelected": 0}],
+        "answer":"",
+        "isQuestion":true
+      },
+
+      {
+        "qstion":"I smoke sigarettes",
+        "type":1,
+        "options": [{"option": "Yes", "isSelected": 0},{"option": "No", "isSelected": 0}],
+        "answer":"",
+        "isQuestion":true
+      },
+
+      {
+        "qstion":"What is your height?",
+        "type":1,
+        "options": [{"option": "Yes", "isSelected": 0},{"option": "No", "isSelected": 0}],
+        "answer":"",
+        "isQuestion":true
+      },
+
+      {
+        "qstion":"Do you have fever?",
+        "type":1,
+        "options": [{"option": "Yes", "isSelected": 0},{"option": "No", "isSelected": 0}],
+        "answer":"",
+        "isQuestion":true
+      },
+      {
+        "qstion":"if yes how high is your fever",
+        "type":1,
+        "options": [{"option": "Fever that comes and goes", "isSelected": 0},{"option": "I haven't measured tempereatire", "isSelected": 0}],
+        "answer":"",
+        "isQuestion":true
+      },
+
+      {
+        "qstion":"if yes how high is your fever",
+        "type":1,
+        "options": [{"option": "Fever that comes and goes", "isSelected": 0},{"option": "I haven't measured tempereatire", "isSelected": 0}],
+        "answer":"",
+        "isQuestion":true
+      },
+      {
+        "qstion":"Do you have cough?",
+        "type":1,
+        "options": [{"option": "Yes", "isSelected": 0},{"option": "No", "isSelected": 0}],
+        "answer":"",
+        "isQuestion":true
+      },
+      {
+        "qstion":"If yes, then select one of the following",
+        "type":1,
+        "options": [{"option" :"Dry Cough", "isSelected": 0},
+          {"option" :"Cough with sputum", "isSelected": 0},
+          {"option" :"Cough with chest pain", "isSelected": 0},
+          {"option" :"Cough with abdominal pain", "isSelected": 0},
+          {"option" :"Cough with blood in it", "isSelected": 0}
+        ],
+        "answer":"",
+        "isQuestion":true
+      },
+      {
+        "qstion":"Are you feeling breathless?",
+        "type":1,
+        "options": [{"option": "Yes", "isSelected": 0},{"option": "No", "isSelected": 0}],
+        "answer":"",
+        "isQuestion":true
+      },
+
+      {
+        "qstion":"If yes, then select one of the following",
+        "type":1,
+        "options": [{"option" :"While lying flat on bed", "isSelected": 0},
+          {"option" :"At night", "isSelected": 0},
+          {"option" :"Breathlessness that comes and goes", "isSelected": 0},
+          {"option" :"Breathlessness while exercising", "isSelected": 0},
+          {"option" :"Sudden feeling of breathlessness", "isSelected": 0}],
+        "answer":"",
+        "isQuestion":true
+      },
+      {
+        "qstion":"Do you have a sore throat?",
+        "type":1,
+        "options": [{"option": "Yes", "isSelected": 0},{"option": "No", "isSelected": 0}],
+        "answer":"",
+        "isQuestion":true
+      },
+      {
+        "qstion":"Do you have nasal congestion?\n",
+        "type":1,
+        "options": [{"option": "Yes", "isSelected": 0},{"option": "No", "isSelected": 0}],
+        "answer":"",
+        "isQuestion":true
+      },
+      {
+        "qstion":"Have you lost a sense of taste or smell?",
+        "type":1,
+        "options": [{"option": "Yes", "isSelected": 0},{"option": "No", "isSelected": 0}],
+        "answer":"",
+        "isQuestion":true
+      },
+      {
+        "qstion":"Please check if you have any of the following symptoms\n",
+        "type":1,
+        "options": [{"option" :"Headache", "isSelected": 0},
+          {"option" :"Chills", "isSelected": 0},
+          {"option" :"Nausea", "isSelected": 0},
+          {"option" :"Vomiting or Vomit like feeling", "isSelected": 0},
+          {"option" :"Diarrhea", "isSelected": 0},
+          {"option" :"Conjunctival conjestion", "isSelected": 0}],
+        "answer":"",
+        "isQuestion":true
+      },
+      {
+        "qstion":"How long have you had these symptoms for?",
+        "type":1,
+        "options": [{"option" :"iska diff h check comments line 162 in json", "isSelected": 0}],
+        "answer":"",
+        "isQuestion":true,
+        "_comment" : "Fever 1 - 3 days, 3-5 days, 5-7days, 10days + ",
+        "_comment" : "Headache 1 - 3 days, 3-5 days, 5-7days, 10days + ",
+        "_comment" : "Cough 1 - 3 days, 3-5 days, 5-7days, 10days + "
+      },
+      {
+        "qstion":"How have your symptoms progressed over the last 48 hours?",
+        "type":1,
+        "options": [{"option" :"improved", "isSelected": 0},
+          {"option" :"no change", "isSelected": 0},
+          {"option" :"worsened", "isSelected": 0},
+          {"option" :"worsened considerably", "isSelected": 0}],
+        "answer":"",
+        "isQuestion":true
+      },
+      {
+        "qstion":"have you travelled anywhere abroad in the last 20days \n or even arrived India recently in the last 20days?",
+        "type":1,
+        "options": [{"option": "Yes", "isSelected": 0},{"option": "No", "isSelected": 0}],
+        "answer":"",
+        "isQuestion":true
+      },
+      {
+        "qstion":"If Yes, then select the country you came from",
+        "type":1,
+        "options": [{"option": "give a text box", "isSelected": 0}],
+        "answer":"",
+        "isQuestion":true
+      },{
+        "qstion":"Have you travelled anywhere inside india by flight in the last 30days?",
+        "type":1,
+        "options": [{"option": "give a text box", "isSelected": 0}],
+        "answer":"",
+        "isQuestion":true
+      },{
+        "qstion":"stranded due to lockdown \n Which city are you from and where are you staying now?",
+        "type":1,
+        "options":[{"option" :"Hometown", "isSelected": 0},{"option" :"Current Location", "isSelected": 0}],
+        "answer":"",
+        "isQuestion":true
+      },{
+        "qstion":"What modes of transport have you used for commute in the last 30 days?",
+        "type":1,
+        "options": [{"option" :"local train or bus", "isSelected": 0},
+          {"option" :"Auto rickshaw or cab", "isSelected": 0},
+          {"option" :"Personal vehicle", "isSelected": 0}
+        ],
         "answer":"",
         "isQuestion":true
       }
+
     ]
   }
 }
