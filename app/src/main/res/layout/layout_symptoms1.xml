@@ -25,7 +25,8 @@
                 android:layout_gravity="center_horizontal"
                 android:src="@mipmap/aisymp"
                 android:layout_width="340px"
-                android:layout_height="340px"/>
+                android:layout_height="340px"
+                android:contentDescription="TODO" />
 
             <LinearLayout
                 android:orientation="vertical"

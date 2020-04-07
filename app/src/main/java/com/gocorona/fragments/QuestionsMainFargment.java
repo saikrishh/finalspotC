@@ -1,5 +1,6 @@
 package com.gocorona.fragments;
 
+import android.app.AlertDialog;
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -19,7 +20,6 @@ import java.util.List;
 
 import simplifii.framework.utility.CollectionUtils;
 import simplifii.framework.utility.JsonUtil;
-import simplifii.framework.utility.ValidationHelper;
 import simplifii.framework.widgets.CustomFontTextView;
 
 public class QuestionsMainFargment extends AppBaseFragment implements ViewPager.OnPageChangeListener {
@@ -121,11 +121,11 @@ public class QuestionsMainFargment extends AppBaseFragment implements ViewPager.
             case R.id.vw_next:
                 onNextClicked();
                 break;
-            case R.id.interestcalculator:
+            case R.id.interesectcalculator:
                 addImportExportFragments();
                 onNextClicked();
                 break;
-            case R.id.startquestionaireclicked:
+            case R.id.questionaireclicked:
                 addQuestionsFragments();
                 onNextClicked();
                 break;
@@ -135,6 +135,9 @@ public class QuestionsMainFargment extends AppBaseFragment implements ViewPager.
             case R.id.btn_submit:
                 onSubmitButtonClicked();
                 break;
+
+
+
             /*case R.id.tv_privacy_and_security:
             case R.id.tv_terms_and_conditions:
                 ActivityContainer.startActivity(this,

@@ -4,9 +4,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/app_background"
     android:layout_height="match_parent">
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -22,101 +24,121 @@
                 android:textStyle="bold" />
 
             <ImageView
-                android:layout_gravity="center_horizontal"
-                android:src="@mipmap/aisymp"
                 android:layout_width="340dp"
-                android:layout_height="340dp"/>
+                android:layout_height="340dp"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="TODO"
+                android:src="@mipmap/aisymp" />
 
             <LinearLayout
-                android:layout_marginTop="@dimen/height_24dp"
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/height_24dp"
+                android:orientation="vertical">
+
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:text="Do you have cough?"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="Do you have cough?" />
 
                 <RadioGroup
-                    android:layout_marginTop="@dimen/dp10"
                     style="@style/match_wrap"
+                    android:layout_marginTop="@dimen/dp10"
                     android:orientation="vertical">
+
                     <View
-                        android:background="@color/grey_light_1"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/dp1"/>
+                        android:layout_height="@dimen/dp1"
+                        android:background="@color/grey_light_1" />
+
                     <RadioButton
                         style="@style/wrap_wrap"
-                        android:text="Yes"
-                        android:checked="true"/>
+                        android:checked="true"
+                        android:text="Yes" />
+
                     <View
-                        android:background="@color/grey_light_1"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/dp1"/>
+                        android:layout_height="@dimen/dp1"
+                        android:background="@color/grey_light_1" />
+
                     <RadioButton
                         android:id="@+id/radioMrs"
                         style="@style/wrap_wrap"
-                        android:text="No"/>
+                        android:text="@string/no" />
+
                     <View
-                        android:background="@color/grey_light_1"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/dp1"/>
+                        android:layout_height="@dimen/dp1"
+                        android:background="@color/grey_light_1" />
                 </RadioGroup>
             </LinearLayout>
+
             <LinearLayout
-                android:layout_marginTop="24dp"
-                android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:orientation="vertical">
+
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:text="If yes, then select one of the following"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:text="If yes, then select one of the following" />
 
                 <RadioGroup
-                    android:layout_marginTop="@dimen/dp10"
                     style="@style/match_wrap"
+                    android:layout_marginTop="@dimen/dp10"
                     android:orientation="vertical">
+
                     <View
-                        android:background="@color/grey_light_1"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/dp1"/>
+                        android:layout_height="@dimen/dp1"
+                        android:background="@color/grey_light_1" />
+
                     <RadioButton
                         style="@style/wrap_wrap"
-                        android:text="Dry Cough"
-                        android:checked="true"/>
+                        android:checked="true"
+                        android:text="Dry Cough" />
+
                     <View
-                        android:background="@color/grey_light_1"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/dp1"/>
+                        android:layout_height="@dimen/dp1"
+                        android:background="@color/grey_light_1" />
+
                     <RadioButton
                         style="@style/wrap_wrap"
-                        android:text="Cough with sputum"/>
+                        android:text="Cough with sputum" />
+
                     <View
-                        android:background="@color/grey_light_1"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/dp1"/>
+                        android:layout_height="@dimen/dp1"
+                        android:background="@color/grey_light_1" />
+
                     <RadioButton
                         style="@style/wrap_wrap"
-                        android:text="Cough with chest pain"/>
+                        android:text="Cough with chest pain" />
+
                     <View
-                        android:background="@color/grey_light_1"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/dp1"/>
+                        android:layout_height="@dimen/dp1"
+                        android:background="@color/grey_light_1" />
+
                     <RadioButton
                         style="@style/wrap_wrap"
-                        android:text="Cough with abdominal pain"/>
+                        android:text="Cough with abdominal pain" />
+
                     <View
-                        android:background="@color/grey_light_1"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/dp1"/>
+                        android:layout_height="@dimen/dp1"
+                        android:background="@color/grey_light_1" />
+
                     <RadioButton
                         style="@style/wrap_wrap"
-                        android:text="Cough with blood in it"/>
+                        android:text="Cough with blood in it" />
+
                     <View
-                        android:background="@color/grey_light_1"
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/dp1"/>
+                        android:layout_height="@dimen/dp1"
+                        android:background="@color/grey_light_1" />
                 </RadioGroup>
             </LinearLayout>
 

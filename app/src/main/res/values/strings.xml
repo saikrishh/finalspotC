@@ -96,4 +96,6 @@
     <string name="tell_symptoms">Please tell us about your symtoms</string>
     <string name="fever">Do you have fever?</string>
     <string name="eg_157_in_cm">eg-157 (in cm.)</string>
+    <string name="no">No</string>
+    <string name="run_the_tutorial_and_download_data">Run the tutorial and download data</string>
 </resources>

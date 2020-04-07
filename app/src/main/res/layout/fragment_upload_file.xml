@@ -8,8 +8,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="none"
-        >
+        android:scrollbars="none">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -17,8 +16,19 @@
             android:layout_gravity="center"
             android:gravity="center"
             android:padding="@dimen/padding_32dp">
+
+            <TextView
+                android:id="@+id/aitext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="48dp"
+                android:text="@string/run_the_tutorial_and_download_data"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
             <ImageButton
-                android:id="@+id/startquestionaireclicked"
+                android:id="@+id/runtutorialclicked"
                 android:layout_width="333dp"
                 android:layout_height="59dp"
                 android:layout_marginTop="40dp"
@@ -27,23 +37,13 @@
                 app:srcCompat="@mipmap/runtutorial" />
 
             <ImageButton
-                android:id="@+id/startquestionaireclicked2"
+                android:id="@+id/takeoutclicked"
                 android:layout_width="332dp"
                 android:layout_height="59dp"
                 android:layout_marginTop="24dp"
                 android:clickable="true"
                 android:contentDescription="TODO"
                 app:srcCompat="@mipmap/starturl" />
-
-            <TextView
-                android:id="@+id/aitext"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="48dp"
-                android:text="Run the tutorial and download data"
-                android:textColor="#000000"
-                android:textSize="18sp"
-                android:textStyle="bold"/>
 
             <TextView
                 android:id="@+id/aitext2"
@@ -56,7 +56,7 @@
                 android:textStyle="bold"/>
 
             <ImageButton
-                android:id="@+id/imageButton6"
+                android:id="@+id/uploadzipclicked"
                 android:layout_width="327dp"
                 android:layout_height="66dp"
                 android:layout_marginTop="52dp"

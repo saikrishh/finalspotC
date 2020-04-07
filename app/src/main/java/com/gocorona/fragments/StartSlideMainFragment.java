@@ -17,7 +17,7 @@ public class StartSlideMainFragment  extends BaseQuestionsFargment {
 
     @Override
     public void initViews() {
-        setOnClickListener(R.id.startquestionaireclicked, R.id.interestcalculator);
+        setOnClickListener(R.id.questionaireclicked, R.id.interesectcalculator);
     }
 
     @Override
@@ -25,11 +25,13 @@ public class StartSlideMainFragment  extends BaseQuestionsFargment {
         super.onClick(v);
         isBtnClicked = true;
         switch (v.getId()) {
-            case R.id.startquestionaireclicked:
+            case R.id.questionaireclicked:
                 mListenerCallback.onClick(v);
+                //showToast("questionaire clicked.. this toast will be deleted");
                 break;
-            case R.id.interestcalculator:
+            case R.id.interesectcalculator:
                 mListenerCallback.onClick(v);
+                //showToast("interest calci clicked.. this toast will be deleted");
                 break;
         }
     }
