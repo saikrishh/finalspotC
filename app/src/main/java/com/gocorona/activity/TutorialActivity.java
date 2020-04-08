@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.gocorona.R;
 import com.gocorona.adapter.ImageAdaptorTutorial;
@@ -18,11 +19,13 @@ public class TutorialActivity extends AppCompatActivity {
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setAdapter(new ImageAdaptorTutorial(this));
 
+        Toast.makeText(this, "Welcome to Intersection Calculator Tutorial!!", Toast.LENGTH_LONG).show();
+
     }
 
     @Override
     public void onBackPressed() {
-
+        Toast.makeText(this, "Click Download Location History from Google", Toast.LENGTH_LONG).show();
         super.onBackPressed();
     }
 }
