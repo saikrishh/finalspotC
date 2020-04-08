@@ -92,7 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_16dp"
             android:orientation="horizontal"
-            android:weightSum="15">
+            android:weightSum="11">
 
             <ImageView
                 android:id="@+id/ic_fb"
@@ -112,7 +112,7 @@
 
             <ImageView
                 android:id="@+id/ic_linkedin"
-                android:layout_width="29dp"
+                android:layout_width="@dimen/width_32dp"
                 android:layout_height="@dimen/height_32dp"
                 android:layout_marginRight="16dp"
                 android:layout_weight="1"
