@@ -1,12 +1,16 @@
 package com.gocorona.fragments;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import androidx.viewpager.widget.ViewPager;
 
+import com.gocorona.MainActivity;
 import com.gocorona.R;
+import com.gocorona.activity.TutorialActivity;
 import com.gocorona.adapter.QuestionsViewPagerAdapter;
 import com.gocorona.customViews.NonSwipeableViewPager;
 import com.gocorona.model.dummy.QuestionData;
@@ -30,6 +34,8 @@ public class QuestionsMainFargment extends AppBaseFragment implements ViewPager.
     private QuestionProgressData questionProgressData = new QuestionProgressData();
     private int mViewPagerCurrentItemIndex = MIN_VIEW_PAGER_COUNT;
     private ProgressBar progressBar;
+    //ImageView iconlocate= (ImageView) findView(R.id.iconlocateinfo);
+
 
     @Override
     public void initViews() {
@@ -90,8 +96,8 @@ public class QuestionsMainFargment extends AppBaseFragment implements ViewPager.
 
     private void addImportExportFragments() {
         initViewPagerFragments();
-
         mListFragmentHolder.add(new QuestionsViewPagerAdapter.FragmentModelHolder(UploadFileFragment.newInstance(), ""));
+
         initViewPager();
     }
 
@@ -115,6 +121,7 @@ public class QuestionsMainFargment extends AppBaseFragment implements ViewPager.
     }
 
 
+
     @Override
     public void onClick(View v) {
         super.onClick(v);
@@ -123,8 +130,10 @@ public class QuestionsMainFargment extends AppBaseFragment implements ViewPager.
                 onNextClicked();
                 break;
             case R.id.interesectcalculator:
-                addImportExportFragments();
-                onNextClicked();
+                Intent myIntent = new Intent(getActivity(), TutorialActivity.class);
+                this.startActivity(myIntent);
+                // addImportExportFragments();
+               // onNextClicked();
                 break;
             case R.id.questionaireclicked:
                 addQuestionsFragments();
@@ -139,6 +148,7 @@ public class QuestionsMainFargment extends AppBaseFragment implements ViewPager.
 
 
 
+
             /*case R.id.tv_privacy_and_security:
             case R.id.tv_terms_and_conditions:
                 ActivityContainer.startActivity(this,
@@ -146,6 +156,7 @@ public class QuestionsMainFargment extends AppBaseFragment implements ViewPager.
                 break;*/
         }
     }
+
 
     private void onNextClicked() {
 //        if (mListFragmentHolder.get(mViewPagerCurrentItemIndex).getFragment().isValid()) {

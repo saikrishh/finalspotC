@@ -1,6 +1,7 @@
 package com.gocorona.adapter;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -13,7 +14,7 @@ import com.gocorona.R;
 public class ImageAdaptorTutorial extends PagerAdapter {
 
 private Context mContext;
-private int[] mImageids = new int[] {R.mipmap.phonepic,R.mipmap.logosplash};
+private int[] mImageids = new int[] {R.mipmap.tut1,R.mipmap.tut2,R.mipmap.tut3,R.mipmap.tut4};
 
 public ImageAdaptorTutorial(Context context){
     mContext = context;
@@ -34,6 +35,7 @@ public ImageAdaptorTutorial(Context context){
         ImageView imageview = new ImageView(mContext);
         imageview.setScaleType(ImageView.ScaleType.CENTER_CROP);
         imageview.setImageResource(mImageids[position]);
+        imageview.setBackgroundColor(Color.rgb(255, 255, 255));
         container.addView(imageview,0);
         return imageview;
     }

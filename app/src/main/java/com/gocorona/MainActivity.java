@@ -5,24 +5,18 @@ import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
-import android.os.Build;
 import android.os.Bundle;
 
 import com.gocorona.activity.AppBaseActivity;
 import com.gocorona.activity.LoginActivity;
-import com.gocorona.activity.RegisterActivity;
 import com.gocorona.fragments.CoronCheckDialog;
 import com.gocorona.fragments.DrawerFragment;
 import com.gocorona.fragments.QuestionsMainFargment;
 import com.gocorona.listeners.ChangeFragmentListner;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
 
 import android.os.Handler;
 import android.text.TextUtils;
 import android.view.Gravity;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 
 import androidx.annotation.Nullable;
@@ -30,30 +24,10 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import com.google.android.material.navigation.NavigationView;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.viewpager.widget.ViewPager;
-
-import android.view.Menu;
-
-import simplifii.framework.activity.BaseActivity;
-import simplifii.framework.receivers.AppBrodcastReciver;
 import simplifii.framework.utility.AppConstants;
-import simplifii.framework.utility.LocalHelperUtility;
-import simplifii.framework.utility.Preferences;
-
-
-
-
 
 
 public class MainActivity extends AppBaseActivity implements DrawerLayout.DrawerListener, ChangeFragmentListner {
@@ -68,7 +42,7 @@ public class MainActivity extends AppBaseActivity implements DrawerLayout.Drawer
         setContentView(R.layout.activity_main);
         setOnClickListener(R.id.rl_drawer, R.id.ll_checkup);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
-        
+
 
         initViews();
         initToolBar("");
@@ -86,6 +60,7 @@ public class MainActivity extends AppBaseActivity implements DrawerLayout.Drawer
                 drawerOperation();
                 break;
             case R.id.ll_checkup:
+
                 addFragment(new QuestionsMainFargment(), true);
 
 //                showCheckupDialog();
@@ -319,10 +294,10 @@ public class MainActivity extends AppBaseActivity implements DrawerLayout.Drawer
     public void onLabelChange() {
         super.onLabelChange();
         Configuration config = new Configuration();
-        ((Activity) this)
+        (this)
                 .getBaseContext()
                 .getResources()
-                .updateConfiguration(config, ((ContextWrapper) this).getBaseContext().getResources().getDisplayMetrics());
+                .updateConfiguration(config, (this).getBaseContext().getResources().getDisplayMetrics());
         initViews();
     }
 
