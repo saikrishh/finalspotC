@@ -18,14 +18,21 @@ public class TutorialActivity extends AppCompatActivity {
 
         ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setAdapter(new ImageAdaptorTutorial(this));
-
-        Toast.makeText(this, "Welcome to Intersection Calculator Tutorial!!", Toast.LENGTH_LONG).show();
+        try {
+            Toast.makeText(this, "Welcome to Intersection Calculator Tutorial!!", Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
     @Override
     public void onBackPressed() {
-        Toast.makeText(this, "Click Download Location History from Google", Toast.LENGTH_LONG).show();
+        try {
+            Toast.makeText(this, "Click Download Location History from Google", Toast.LENGTH_LONG).show();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         super.onBackPressed();
     }
 }
