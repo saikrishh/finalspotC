@@ -41,6 +41,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.viewpager.widget.ViewPager;
 
 import android.view.Menu;
 
@@ -67,6 +68,8 @@ public class MainActivity extends AppBaseActivity implements DrawerLayout.Drawer
         setContentView(R.layout.activity_main);
         setOnClickListener(R.id.rl_drawer, R.id.ll_checkup);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+        
+
         initViews();
         initToolBar("");
 //        if (!Preferences.isUserDeviceInfoSaveed()){

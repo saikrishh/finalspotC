@@ -90,7 +90,6 @@ public class QuestionsMainFargment extends AppBaseFragment implements ViewPager.
 
     private void addImportExportFragments() {
         initViewPagerFragments();
-        mListFragmentHolder.add(new QuestionsViewPagerAdapter.FragmentModelHolder(TutorialFragment.newInstance(), ""));
 
         mListFragmentHolder.add(new QuestionsViewPagerAdapter.FragmentModelHolder(UploadFileFragment.newInstance(), ""));
         initViewPager();

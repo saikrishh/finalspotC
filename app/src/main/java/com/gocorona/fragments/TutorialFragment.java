@@ -2,15 +2,19 @@ package com.gocorona.fragments;
 
 import android.view.View;
 
+import androidx.viewpager.widget.ViewPager;
+
 import com.gocorona.R;
+import com.gocorona.adapter.ViewPagerAdapter;
 import com.gocorona.model.dummy.QuestionProgressData;
 
 public class TutorialFragment extends BaseQuestionsFargment {
     private View.OnClickListener mListenerCallback;
 
     public static TutorialFragment newInstance() {
-        TutorialFragment baseQuestionsFargment = new TutorialFragment();
-        return baseQuestionsFargment;
+        TutorialFragment tutofrag = new TutorialFragment();
+
+        return tutofrag;
     }
 
     @Override
@@ -42,6 +46,9 @@ public class TutorialFragment extends BaseQuestionsFargment {
 
     @Override
     public int getViewID() {
-        return R.layout.activity_terms_conditions;
+
+        showToast("fragmenttutorial");
+
+        return R.layout.fragment_gallery;
     }
 }
