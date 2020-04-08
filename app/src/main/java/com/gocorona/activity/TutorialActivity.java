@@ -19,4 +19,10 @@ public class TutorialActivity extends AppCompatActivity {
         viewPager.setAdapter(new ImageAdaptorTutorial(this));
 
     }
+
+    @Override
+    public void onBackPressed() {
+
+        super.onBackPressed();
+    }
 }

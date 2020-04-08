@@ -33,7 +33,7 @@ public ImageAdaptorTutorial(Context context){
     @Override
     public Object instantiateItem(@NonNull ViewGroup container, int position) {
         ImageView imageview = new ImageView(mContext);
-        imageview.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        imageview.setScaleType(ImageView.ScaleType.FIT_CENTER);
         imageview.setImageResource(mImageids[position]);
         imageview.setBackgroundColor(Color.rgb(255, 255, 255));
         container.addView(imageview,0);

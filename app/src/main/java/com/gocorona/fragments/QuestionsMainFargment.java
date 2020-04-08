@@ -2,6 +2,7 @@ package com.gocorona.fragments;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
@@ -21,6 +22,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import simplifii.framework.utility.CollectionUtils;
 import simplifii.framework.utility.JsonUtil;
@@ -132,8 +135,24 @@ public class QuestionsMainFargment extends AppBaseFragment implements ViewPager.
             case R.id.interesectcalculator:
                 Intent myIntent = new Intent(getActivity(), TutorialActivity.class);
                 this.startActivity(myIntent);
-                // addImportExportFragments();
-               // onNextClicked();
+                /*addImportExportFragments();
+                onNextClicked();
+                */
+                new CountDownTimer(500, 250) {
+                    public void onFinish() {
+
+                        addImportExportFragments();
+                        onNextClicked();
+                        // When timer is finished
+                        // Execute your code here
+                    }
+
+                    public void onTick(long millisUntilFinished) {
+                        // millisUntilFinished    The amount of time until finished.
+                    }
+                }.start();
+
+
                 break;
             case R.id.questionaireclicked:
                 addQuestionsFragments();
