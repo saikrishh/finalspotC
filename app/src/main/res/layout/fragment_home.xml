@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragmentmapcontainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -11,36 +12,20 @@
         android:layout_height="match_parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/filters"
+        android:id="@+id/mylocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/mapView"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="false"
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_margin="@dimen/dp_margin_12"
-        android:layout_marginBottom="@dimen/dp_margin_12"
-        android:backgroundTint="@color/colorAccent"
-        app:srcCompat="@mipmap/icon_32"
-        tools:visibility="invisible" />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_alignParentEnd="true"
-        android:layout_margin="@dimen/dp_margin_12"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:gravity="bottom">
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/mylocation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/dp_margin_12"
-            android:backgroundTint="#ffffff"
-            app:backgroundTint="#2E2EE4"
-            app:srcCompat="@drawable/gpsicon" />
-
-    </LinearLayout>
+        android:layout_alignParentBottom="false"
+        android:layout_marginStart="340dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="18dp"
+        android:backgroundTint="#ffffff"
+        app:srcCompat="@drawable/gpsicon" />
 
 </RelativeLayout>
