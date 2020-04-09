@@ -1,5 +1,6 @@
 package com.gocorona;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.ContextWrapper;
 import android.content.Intent;
@@ -18,6 +19,7 @@ import android.os.Handler;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
@@ -36,12 +38,13 @@ public class MainActivity extends AppBaseActivity implements DrawerLayout.Drawer
     private boolean isDrawerOpen;
     private boolean doubleBackToExitPressedOnce = false;
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         setOnClickListener(R.id.rl_drawer, R.id.ll_checkup);
-        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED);
+        this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 
         initViews();
@@ -60,9 +63,9 @@ public class MainActivity extends AppBaseActivity implements DrawerLayout.Drawer
                 drawerOperation();
                 break;
             case R.id.ll_checkup:
-
                 addFragment(new QuestionsMainFargment(), true);
-
+            case R.id.mylocation:
+                showToast("fab pressed");
 //                showCheckupDialog();
                 break;
         }
