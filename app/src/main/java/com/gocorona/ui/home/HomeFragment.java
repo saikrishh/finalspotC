@@ -13,6 +13,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.gocorona.R;
 import com.gocorona.fragments.AppBaseFragment;
+import com.gocorona.fragments.QuestionsMainFargment;
 
 
 public class HomeFragment extends AppBaseFragment {
@@ -36,6 +37,18 @@ public class HomeFragment extends AppBaseFragment {
 
     @Override
     public void initViews() {
+setOnClickListener(R.id.mylocation);
+    }
+
+    @Override
+    public void onClick(View v) {
+        super.onClick(v);
+        switch (v.getId()) {
+            case R.id.mylocation:
+                showToast("FAButton");
+                break;
+
+        }
 
     }
 

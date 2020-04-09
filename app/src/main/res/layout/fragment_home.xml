@@ -5,14 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Space for Map " />
+    <com.google.android.gms.maps.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/mylocation"
+        android:id="@+id/filters"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -20,24 +19,25 @@
         android:layout_margin="@dimen/dp_margin_12"
         android:layout_marginBottom="@dimen/dp_margin_12"
         android:backgroundTint="@color/colorAccent"
-        app:srcCompat="@drawable/ic_add_user"
+        app:srcCompat="@mipmap/icon_32"
         tools:visibility="invisible" />
 
     <LinearLayout
-    android:layout_width="wrap_content"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_alignParentEnd="true"
-    android:layout_margin="@dimen/dp_margin_12"
-    android:layout_alignParentRight="true"
-    android:layout_alignParentBottom="true"
-    android:gravity="bottom">
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="@dimen/dp_margin_12"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:gravity="bottom">
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/mylocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="@dimen/dp_margin_12"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="#ffffff"
             app:backgroundTint="#2E2EE4"
             app:srcCompat="@drawable/gpsicon" />
 

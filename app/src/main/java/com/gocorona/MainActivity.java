@@ -45,8 +45,6 @@ public class MainActivity extends AppBaseActivity implements DrawerLayout.Drawer
         setContentView(R.layout.activity_main);
         setOnClickListener(R.id.rl_drawer, R.id.ll_checkup);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
-
-
         initViews();
         initToolBar("");
 //        if (!Preferences.isUserDeviceInfoSaveed()){
@@ -64,10 +62,8 @@ public class MainActivity extends AppBaseActivity implements DrawerLayout.Drawer
                 break;
             case R.id.ll_checkup:
                 addFragment(new QuestionsMainFargment(), true);
-            case R.id.mylocation:
-                showToast("fab pressed");
-//                showCheckupDialog();
                 break;
+
         }
     }
 
