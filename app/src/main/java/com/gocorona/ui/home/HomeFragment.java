@@ -45,8 +45,8 @@ public class HomeFragment extends AppBaseFragment {
     @Override
     public void initViews() {
 
-        addFragment(new MapViewFragment(), true);
-        setOnClickListener(R.id.mylocation);
+    addFragment(new MapViewFragment(), true);
+    setOnClickListener(R.id.mylocation);
     }
 
     public void addFragment(Fragment fragment, boolean b) {
@@ -67,8 +67,8 @@ public class HomeFragment extends AppBaseFragment {
         super.onClick(v);
         switch (v.getId()) {
             case R.id.mylocation:
-
-                showToast("FAButton");
+                initViews();
+                //showToast("FAButton");
                 break;
 
         }

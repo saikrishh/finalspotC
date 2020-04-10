@@ -1,11 +1,17 @@
 package com.gocorona;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContextWrapper;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
 import android.content.res.Configuration;
+import android.os.Build;
 import android.os.Bundle;
 
 import com.gocorona.activity.AppBaseActivity;
@@ -22,6 +28,8 @@ import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -46,12 +54,10 @@ public class MainActivity extends AppBaseActivity implements DrawerLayout.Drawer
         setOnClickListener(R.id.rl_drawer, R.id.ll_checkup);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         initViews();
-        initToolBar("");
-//        if (!Preferences.isUserDeviceInfoSaveed()){
-//            sendNotificationId();
-//        }
-
+        initToolBar("in it tools");
     }
+
+
 
     @Override
     public void onClick(View v) {

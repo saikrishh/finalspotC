@@ -1,22 +1,59 @@
 package com.gocorona.activity;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentSender;
+import android.content.pm.PackageManager;
+import android.location.LocationManager;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.provider.Settings;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gocorona.MainActivity;
 import com.gocorona.R;
+import com.google.android.gms.common.api.ApiException;
+import com.google.android.gms.common.api.ResolvableApiException;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationSettingsRequest;
+import com.google.android.gms.location.LocationSettingsResponse;
+import com.google.android.gms.location.LocationSettingsStatusCodes;
+import com.google.android.gms.location.SettingsClient;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
+
+import java.io.IOException;
 
 import simplifii.framework.activity.BaseActivity;
 import simplifii.framework.utility.AppConstants;
+import simplifii.framework.utility.GPSTracker;
+
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
@@ -96,9 +133,10 @@ public class SplashActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.activity_splash);
 
+
+        //checkGPSStatus();
         mVisible = true;
         findViewById(R.id.tv_btn_signup);
 //        mControlsView = findViewById(R.id.fullscreen_content_controls);
@@ -118,8 +156,41 @@ public class SplashActivity extends BaseActivity {
         // while interacting with the UI.
 //        findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
         setOnClickListener(R.id.tv_btn_signup, R.id.ic_fb, R.id.ic_google);
+        checkRunTimePermission();
         hide();
     }
+
+   /* private void checkGPSStatus() {
+        final LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            Toast.makeText(gpsTracker, "GPS not Enabled", Toast.LENGTH_SHORT).show();
+            AlertDialog alertDialog = new AlertDialog.Builder(this)
+                    .setIcon(R.mipmap.infoicon)
+                    .setTitle("Turn on GPS")
+                    .setMessage("")
+                    .setPositiveButton("Enable GPS from Settings", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                            finish();
+                        }
+                    })
+                    .setNegativeButton("I Enabled GPS", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            //set what should happen when negative button is clicked
+                            if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+                                Toast.makeText(gpsTracker, "GPS is not enabled", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    })
+                    .show();
+
+        } else {
+            Toast.makeText(gpsTracker, "GPS Enabled", Toast.LENGTH_SHORT).show();
+        }
+    }*/
+
 
     @Override
     public void onClick(View v) {
@@ -138,9 +209,108 @@ public class SplashActivity extends BaseActivity {
         }
     }
 
+
+
+
     private void startLoginActivityForResult() {
+
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivityForResult(intent, AppConstants.REQUEST_CODES.REGISTER);
+    }
+    GPSTracker gpsTracker;
+/*
+    private void checkRunTimePermission() {
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ||
+                    ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED||
+                    ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                gpsTracker = new GPSTracker(this);
+
+            } else {
+                requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION},
+                        10);
+            }
+        } else {
+            gpsTracker = new GPSTracker(this); //GPSTracker is class that is used for retrieve user current location
+        }
+    }
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == 10) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                gpsTracker = new GPSTracker(this);
+            } else {
+                if (!ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+                    // If User Checked 'Don't Show Again' checkbox for runtime permission, then navigate user to Settings
+                    AlertDialog.Builder dialog = new AlertDialog.Builder(this);
+                    dialog.setTitle("Permission Required");
+                    dialog.setCancelable(false);
+                    dialog.setMessage("You have to Allow permission to access user location");
+                    dialog.setPositiveButton("Settings", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Intent i = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, Uri.fromParts("package",
+                                    getApplicationContext().getPackageName(), null));
+                            //i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            startActivityForResult(i, 1001);
+                        }
+                    });
+                    AlertDialog alertDialog = dialog.create();
+                    alertDialog.show();
+                }
+                //code for deny
+            }
+        }
+    }
+*/
+
+    private void checkRunTimePermission() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            Toast.makeText(this, "Version Check >= Marshmallow", Toast.LENGTH_SHORT).show();
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ||
+                    ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED||
+                    ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) == PackageManager.PERMISSION_GRANTED)
+            {
+                //Toast.makeText(this, "Location Permission Enabled/given", Toast.LENGTH_SHORT).show();
+            }
+            else {
+                requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION},
+                        1001);
+                Toast.makeText(this, "Location Permission Denied/Disabled", Toast.LENGTH_SHORT).show();
+
+            }
+        } else {
+            Toast.makeText(this, "Not supported for less than Marshmellow", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public void startActivityForResult(Intent intent, int requestCode) {
+        super.startActivityForResult(intent, requestCode);
+        switch (requestCode) {
+            case 1001:
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                    if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ||
+                            ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED
+                            || ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+                        gpsTracker = new GPSTracker(this);
+                        if (gpsTracker.canGetLocation()) {
+                            Toast.makeText(gpsTracker, "GPS is Enabled", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        Toast.makeText(gpsTracker, "GPS is NOT Enabled", Toast.LENGTH_SHORT).show();
+                        requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION,
+                                Manifest.permission.ACCESS_BACKGROUND_LOCATION},10);
+                    }
+                }
+                break;
+            default:
+                Toast.makeText(gpsTracker, "Request Code unknown - "+requestCode, Toast.LENGTH_SHORT).show();
+                break;
+        }
     }
 
     @Override

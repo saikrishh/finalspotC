@@ -31,10 +31,11 @@
         <activity
             android:name=".activity.LoginActivity"
             android:screenOrientation="portrait" />
+        <!--android:label="@string/title_activity_splash"-->
         <activity
             android:name=".activity.SplashActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
-            android:label="@string/title_activity_splash"
+
             android:launchMode="singleTask"
             android:screenOrientation="portrait"
             android:theme="@style/FullscreenTheme">

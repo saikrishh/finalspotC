@@ -1,10 +1,22 @@
 package com.gocorona.activity;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
+import android.annotation.TargetApi;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentSender;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.TextPaint;
@@ -12,9 +24,20 @@ import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.gocorona.MainActivity;
 import com.gocorona.R;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.PendingResult;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.location.LocationSettingsRequest;
+import com.google.android.gms.location.LocationSettingsResult;
+import com.google.android.gms.location.LocationSettingsStatusCodes;
 
 import simplifii.framework.activity.BaseActivity;
 
@@ -28,6 +51,7 @@ public class RegisterActivity extends BaseActivity {
         initViews();
         setOnClickListener(R.id.btn_submit);
     }
+
 
     private void initViews() {
         setTermsAndConditionClick();
@@ -73,7 +97,7 @@ public class RegisterActivity extends BaseActivity {
         super.onClick(v);
         switch (v.getId()){
             case R.id.btn_submit:
-                startNextActivity(MainActivity.class);
+                    startNextActivity(MainActivity.class);
                 finish();
                 break;
         }
