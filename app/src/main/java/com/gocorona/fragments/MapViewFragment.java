@@ -37,6 +37,7 @@ import com.google.android.gms.location.LocationSettingsRequest;
 import com.google.android.gms.location.LocationSettingsResult;
 import com.google.android.gms.location.LocationSettingsStates;
 import com.google.android.gms.location.LocationSettingsStatusCodes;
+import com.google.android.gms.maps.CameraUpdate;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
@@ -58,7 +59,9 @@ public class MapViewFragment extends Fragment {
 
     MapView mMapView;
     private GoogleMap googleMap;
-    LatLng myPosition;
+
+    LatLng mylocation;
+
     public static MapViewFragment instance;
 
     public static MapViewFragment getInstance() {
@@ -79,9 +82,7 @@ public class MapViewFragment extends Fragment {
              @Override
              public void onMapReady(GoogleMap mMap) {
                  googleMap = mMap;
-
                  // For showing a move to my location button
-
                  googleMap.setMyLocationEnabled(true);
                  googleMap.getUiSettings().setMyLocationButtonEnabled(false);
 
@@ -91,9 +92,8 @@ public class MapViewFragment extends Fragment {
                  if ((ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) && (ActivityCompat.checkSelfPermission(getActivity(), Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)) {
                      // TODO: Consider calling
                      //    ActivityCompat#requestPermissions
+                     Toast.makeText(getActivity(), "no permission", Toast.LENGTH_SHORT).show();
                      // here to request the missing permissions, and then overriding
-
-
                      //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
                      //                                          int[] grantResults)
                      // to handle the case where the user grants the permission. See the documentation
@@ -105,24 +105,28 @@ public class MapViewFragment extends Fragment {
                  if (location != null) {
                      double latitude = location.getLatitude();
                      double longitude = location.getLongitude();
-                     myPosition = new LatLng(latitude, longitude);
+                     mylocation = new LatLng(latitude, longitude);
                  }
 
                  // For dropping a marker at a point on the Map
                  //googleMap.addMarker(new MarkerOptions().position(myPosition).title("Marker Title").snippet("Marker Description"));
 
                  // For zooming automatically to the location of the marker
-                 mylocationzone();
+
+                 /*CameraUpdate cameraUpdate = CameraUpdateFactory.newLatLngZoom(mylocation, 16);
+                 googleMap.animateCamera(cameraUpdate);
+*/
+                 /*CameraPosition mylocview = new CameraPosition.Builder().target(mylocation).zoom(17).bearing(90).tilt(30).build();
+                 googleMap.animateCamera(CameraUpdateFactory.newCameraPosition(mylocview));
+                 */
+
+                 googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mylocation, 16));
+                 googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(mylocation, 16));
+
+
              }
 
 
-             public void mylocationzone() {
-                 //    CameraPosition cameraPosition = new CameraPosition.Builder().target(myPosition).zoom(16).build();
-                 //googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(myPosition,16 ));
-
-                 googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(myPosition, 16));
-                 googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(myPosition, 16));
-             }//newCameraPosition
 
 
          });

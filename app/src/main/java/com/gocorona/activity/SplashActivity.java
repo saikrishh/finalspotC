@@ -156,7 +156,6 @@ public class SplashActivity extends BaseActivity {
         // while interacting with the UI.
 //        findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
         setOnClickListener(R.id.tv_btn_signup, R.id.ic_fb, R.id.ic_google);
-        checkRunTimePermission();
         hide();
     }
 
@@ -199,24 +198,28 @@ public class SplashActivity extends BaseActivity {
             case R.id.ic_fb:
             case R.id.ic_google:
                 startNextActivity(MainActivity.class);
-                finish();
+                //finish();
                 break;
             case R.id.tv_btn_signup:
-                startLoginActivityForResult();
+                //checkRunTimePermission(); //checks if system has permission
+                Intent intent = new Intent(this, RegisterActivity.class);
+                startActivity(intent);
+                //startLoginActivityForResult();
 //                startNextActivity(MainActivity.class);
 //                finish();
                 break;
         }
     }
 
-
-
-
-    private void startLoginActivityForResult() {
-
+    /*private void startLoginActivityForResult() {
         Intent intent = new Intent(this, RegisterActivity.class);
-        startActivityForResult(intent, AppConstants.REQUEST_CODES.REGISTER);
-    }
+        startActivityForResult(intent, 2002);
+        final LocationManager manager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+    }*/
+
+
+
     GPSTracker gpsTracker;
 /*
     private void checkRunTimePermission() {
@@ -272,12 +275,15 @@ public class SplashActivity extends BaseActivity {
             Toast.makeText(this, "Version Check >= Marshmallow", Toast.LENGTH_SHORT).show();
             if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED ||
                     ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED||
-                    ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) == PackageManager.PERMISSION_GRANTED)
+                    ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_BACKGROUND_LOCATION) == PackageManager.PERMISSION_GRANTED||
+                    ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED||
+                    ActivityCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED)
             {
                 //Toast.makeText(this, "Location Permission Enabled/given", Toast.LENGTH_SHORT).show();
             }
             else {
-                requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION},
+                requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION,
+                                Manifest.permission.READ_EXTERNAL_STORAGE,Manifest.permission.WRITE_EXTERNAL_STORAGE},
                         1001);
                 Toast.makeText(this, "Location Permission Denied/Disabled", Toast.LENGTH_SHORT).show();
 
@@ -307,8 +313,11 @@ public class SplashActivity extends BaseActivity {
                     }
                 }
                 break;
+            case 2002:
+
+                break;
             default:
-                Toast.makeText(gpsTracker, "Request Code unknown - "+requestCode, Toast.LENGTH_SHORT).show();
+
                 break;
         }
     }
@@ -365,7 +374,7 @@ public class SplashActivity extends BaseActivity {
 //        mHideHandler.removeCallbacks(mHideRunnable);
 //        mHideHandler.postDelayed(mHideRunnable, delayMillis);
     }
-
+/*
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -386,4 +395,6 @@ public class SplashActivity extends BaseActivity {
         }
 
     }
+*/
 }
+

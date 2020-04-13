@@ -1,20 +1,13 @@
 package com.gocorona.activity;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
-import android.Manifest;
-import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.IntentSender;
-import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.net.Uri;
-import android.os.Build;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.text.SpannableString;
@@ -30,18 +23,10 @@ import com.gocorona.MainActivity;
 import com.gocorona.R;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
-import com.google.android.gms.common.api.PendingResult;
-import com.google.android.gms.common.api.ResultCallback;
-import com.google.android.gms.common.api.Status;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.location.LocationSettingsRequest;
-import com.google.android.gms.location.LocationSettingsResult;
-import com.google.android.gms.location.LocationSettingsStatusCodes;
 
 import simplifii.framework.activity.BaseActivity;
 
-public class RegisterActivity extends BaseActivity {
+public class RegisterActivity extends BaseActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +35,7 @@ public class RegisterActivity extends BaseActivity {
         initToolBar("Sign Up");
         initViews();
         setOnClickListener(R.id.btn_submit);
+        Toast.makeText(this, "Turn on GPS", Toast.LENGTH_LONG).show();
     }
 
 
@@ -92,14 +78,90 @@ public class RegisterActivity extends BaseActivity {
         });
     }
 
+
     @Override
     public void onClick(View v) {
         super.onClick(v);
         switch (v.getId()){
             case R.id.btn_submit:
-                    startNextActivity(MainActivity.class);
-                finish();
-                break;
+                startNextActivity(MainActivity.class);
+
+/*                boolean n = checkgps();
+                    int m = turnonGPS(gpsstatus);
+                    showToast("n = "+Boolean.toString(n)+", m = "+String.valueOf(n));
+ */
+            break;
         }
+    }
+/*
+    GoogleApiClient googleApiClient;
+    private int turnonGPS(final int gpsstatus) {
+        if (gpsstatus!=1) {
+            AlertDialog alertDialog = new AlertDialog.Builder(getApplicationContext())
+                    .setIcon(R.mipmap.infoicon)
+                    .setTitle("Turn on GPS")
+                    .setMessage("")
+                    .setPositiveButton("Enable GPS from Settings", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            gpsset=false;
+                            startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                            checkgps();
+                            if (gpsset==true) {
+                                finish();
+                                startNextActivity(MainActivity.class);
+                            }
+                            else
+                                showToast("You were kidding .. You jus went to settings and came back");
+                        }
+                    })
+                    .setNegativeButton("I Enabled GPS", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            //set what should happen when negative button is clicked
+                            checkgps();
+                            if (gpsset==true){
+                                showToast("GPS enabled");
+                                startNextActivity(MainActivity.class);
+                            }else
+                                turnonGPS(gpsstatus);
+
+                        }
+                    })
+                    .show();
+        }
+        return gpsstatus;
+    }
+
+    LocationManager manager = null;
+    boolean gpsset;
+
+    public boolean checkgps() {
+        if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+            Toast.makeText(getApplicationContext(), "GPS is not enabled", Toast.LENGTH_SHORT).show();
+            gpsset = false;
+        } else
+        {Toast.makeText(getApplicationContext(), "GPS is enabled", Toast.LENGTH_SHORT).show();
+        gpsset=true;
+        }
+        return gpsset;
+    }
+*/
+
+
+
+    @Override
+    public void onConnected(@Nullable Bundle bundle) {
+
+    }
+
+    @Override
+    public void onConnectionSuspended(int i) {
+
+    }
+
+    @Override
+    public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
+
     }
 }
